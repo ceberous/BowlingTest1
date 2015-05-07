@@ -1,0 +1,32 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>Bowling Logic</title>
+ 	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+ 	<script type="text/javascript" src="./js/angular.min.js"></script>
+ 	<script type="text/javascript" src="./js/angular-resource.min.js"></script>
+ 	<script type="text/javascript" src="./js/angular-ui-router.js"></script>
+ 	<script type="text/javascript" src="./js/jquery.min.js"></script>
+ 	<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+ 	<script type="text/javascript" src="./js/angularMain.js"></script>
+ </head>
+
+<body ng-app="bowlingApp">
+ 
+<nav class="navbar navbar-inverse" role="navigation">
+	<div class="navbar-header">
+		<a ui-sref="home" class="navbar-brand">Home</a>
+	</div>
+	<ul class="nav navbar-nav">
+		<li><a ui-sref="play">Play</a></li>
+	</ul>	
+</nav>
+
+<div class="container">
+	<div ui-view="" >
+		
+	</div>
+</div>
+
+ </body>
+ </html>
