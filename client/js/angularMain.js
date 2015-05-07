@@ -20,6 +20,12 @@ var app = angular.module('bowlingApp' , ['ui.router' , 'ngResource'])
 					controller: 'PlayCtrl'
 				})
 
+				.state('random' , {
+					url: '/random',
+					templateUrl: 'views/random.html',
+					controller: 'RandomCtrl'
+				})
+
 			;
 
 		}
@@ -30,8 +36,6 @@ var app = angular.module('bowlingApp' , ['ui.router' , 'ngResource'])
 	.controller('HomeCtrl' , ['$scope' , function($scope) {
 		console.log('Here in Home Controller');
 	}])
-
-
 
 
 	.controller('PlayCtrl' , ['$scope' , function($scope) {
@@ -90,7 +94,8 @@ var app = angular.module('bowlingApp' , ['ui.router' , 'ngResource'])
 			$scope.frameTotals = [];
 
 		var frameCounter = 0;
-		$scope.randomFrame = function() {
+		var finalScore = 0;
+		$scope.randomize = function() {
 
 			while(frameCounter <= 9) {
 
@@ -107,8 +112,12 @@ var app = angular.module('bowlingApp' , ['ui.router' , 'ngResource'])
 				var frame = {frameNumber: frameCounter , score1: score1 , score2: score2 , frameScoreTotal: frameTotal};
 
 				$scope.gameContainer.push(frame);
+				finalScore = finalScore + frameTotal;
 
 			}
+
+			alert(finalScore);
+			$scope.finalScore = finalScore;
 
 		};
 

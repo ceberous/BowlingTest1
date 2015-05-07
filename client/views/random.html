@@ -1,0 +1,49 @@
+
+<div class="row">
+
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+		<div class="jumbotron">
+			<h1 class="text-center">Bowling Simulator</h1>
+            <h5 ng-if="finalScore" class="text-center" style="color:red;">Final Score: {{finalScore}}</h5>
+		</div>
+
+	</div>
+
+    <!-- Data Table -->
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="table-responsive">
+        <table class="table table-bordered text-center">
+            
+            <thead>
+            <tr><th ng-repeat="x in headings">{{x}}</th></tr>
+            </thead>
+           
+            <tbody>
+                <tr ng-repeat="frame in gameContainer">
+                   <td>{{frame.frameNumber}}</td>
+                   <td>{{frame.score1}}</td>
+                   <td>{{frame.score2}}</td>
+                   <td>{{frame.frameScoreTotal}}</td>
+                </tr>
+            </tbody>
+            
+        </table>
+    </div>
+	</div>
+    <!-- END Table -->
+
+    <!-- Control Buttons -->
+
+        <!-- Randomize the Whole Game -->
+        <div class="row">
+            <div class="col-lg-2 col-lg-offset5 col-md-2 col-md-offset-5 col-sm-2 col-sm-offset-5 col-xs-2 col-xs-offset-4">
+                <button ng-click="randomize()" class="btn btn-warning text-center">Randomize</button>
+            </div>
+        </div>
+
+    <!-- END Ctrl Buttons -->
+
+</div>
+
+
