@@ -46,22 +46,69 @@ var app = angular.module('bowlingApp' , ['ui.router' , 'ngResource'])
 			$scope.frameTotals = [];
 
 		var frameCounter = 0;
+		var gameTotal = 0;
 		$scope.randomFrame = function() {
+
+			// Parity and Edge Checking
+			console.log($scope.gameTotal);
+			if(frameCounter >= 10 ) {
+				alert('Total Game Sum = ' + $scope.gameTotal); 
+				return;
+			}
 
 			// Generate Data
 			frameCounter += 1;
+			
 			var score1 = Math.floor(Math.random() * 11) + 0;
-			var score2 = Math.floor(Math.random() * 11) + 0;
+			var diff = 10 - score1;
+			var score2 = Math.floor(Math.random() * diff );
 			var frameTotal = score1 + score2;
-
+			gameTotal = frameTotal + gameTotal;
 			// Update Frame Number
 			$scope.frameNumber = frameCounter;
 
 			// Store frame into game
 			var frame = {frameNumber: frameCounter , score1: score1 , score2: score2 , frameScoreTotal: frameTotal};
-
 			$scope.gameContainer.push(frame);
+			$scope.gameTotal = gameTotal;
+			
 
+		};
+
+
+	}])
+
+	.controller('RandomCtrl' , ['$scope' , function($scope) {
+
+		$scope.headings = [
+			'Frame' , 'Throw - 1' , 'Throw - 2' , 'Frame Score'
+		];
+
+		$scope.gameContainer = [];
+			$scope.throw1Container = [];
+			$scope.throw2Container = [];
+			$scope.frameTotals = [];
+
+		var frameCounter = 0;
+		$scope.randomFrame = function() {
+
+			while(frameCounter <= 9) {
+
+				// Generate Data
+				frameCounter += 1;
+				var score1 = Math.floor(Math.random() * 11) + 0;
+				var score2 = Math.floor(Math.random() * 11) + 0;
+				var frameTotal = score1 + score2;
+
+				// Update Frame Number
+				$scope.frameNumber = frameCounter;
+
+				// Store frame into game
+				var frame = {frameNumber: frameCounter , score1: score1 , score2: score2 , frameScoreTotal: frameTotal};
+
+				$scope.gameContainer.push(frame);
+
+			}
 
 		};
 
