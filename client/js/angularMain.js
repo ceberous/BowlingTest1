@@ -79,6 +79,15 @@ var app = angular.module('bowlingApp' , ['ui.router' , 'ngResource'])
 
 		};
 
+		$scope.undo = function() {
+			$scope.gameContainer.pop();
+		};
+
+		$scope.reset = function() {
+			$scope.gameContainer = {};
+			window.location.reload();
+		};
+
 
 	}])
 
@@ -119,6 +128,11 @@ var app = angular.module('bowlingApp' , ['ui.router' , 'ngResource'])
 			alert(finalScore);
 			$scope.finalScore = finalScore;
 
+		};
+
+		$scope.reset = function() {
+			$scope.gameContainer = {};
+			window.location.reload();
 		};
 
 
